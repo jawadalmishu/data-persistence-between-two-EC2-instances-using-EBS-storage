@@ -20,45 +20,59 @@ Knowledge about VM instance, Subnetting, Network interface, SQL commands, MySQL 
 ## Step 1:
 In this step we will create two vm and install docker container in them, then we will install mysql in docker container. We will attach an EBS volume with one instance.
 First log into AWS dashboard.
+
 ![aws console home](img/2.png)
 
 Now click on EC2.
+
 ![EC2 dashboard.](img/3.png)
 
 From left hand menu click on instances.
+
 ![Instance dashboard](img/4.png)
 
 Give name to the instance(old-ja-1).
+
 ![old-ja-1](img/5.png)
 
 select ubuntu as operating system.
+
 ![ubuntu](img/6.png)
 
 select instance type, key-pair(proceed without key-pair).
+
 ![instance type and key-pair](img/7.png)
 
 Now add new 20 GB EBS volume. This volume is detachable.
+
 ![add new volume](img/8.png)
 
 Now click on launch instance button and wait.
+
 ![launching instances](img/9.png)
 
 Successfully we have created our first instances.
+
 ![instance created](img/10.png)
 
 Again launch an instance. Give name(new-ja-1).
+
 ![new-ja-1](img/11.png)
 
 select ubuntu.
+
 ![ubuntu](img/12.png)
 
 select instance type and key-pair
+
 ![instance type and key-pair](img/13.png)
 
 click on launch instance.
+
 ![launch instance](img/14.png)
 
 see the table, we have our two vm(old-ja-1 and new-ja-1).
+
 ![two vm listed](img/15.png)
 
 ## Step 2:
@@ -66,15 +80,19 @@ Now in this step we will launch vm terminal and will install docker container an
 
 ## For vm-1(old-ja-1):
 check the old-ja-1 and click on connect
+
 ![old-ja-1](img/16.png)
 
 Now are in connect to instance page.
+
 ![connecting instance](img/17.png)
 
 Now, click on connect button.
+
 ![connect button](img/18.png)
 
 we have successfully launched our old-ja-1 terminal
+
 ![old-ja-1 terminal](img/19.png)
 
 Now, type this commands one by one to update and install docker
@@ -112,6 +130,7 @@ sudo docker run hello-world
 ![output](img/20.png)
 
 now type lsblk, to see the list of storage.
+
 ![list of storage](img/21.png)
 
 xvdb is 20GB volume that we have created. we need to mount it with a directory of the host. So now we have to make a directory, type this command.
@@ -182,6 +201,7 @@ sudo docker compose up
 ````
 
 Wait for sometime, you will see the mysql container is running.
+
 ![mysql](img/27.png)
 
 We have to let this terminal open as it is. So, we need another old-ja-a terminal to work. Open another old-ja-1 terminal and type this command to check if mysql container is running or not.
@@ -207,6 +227,7 @@ mysql -u root -p
 ```
 
 username is root and enter password(a)
+
 ![enter into db](img/30.png)
 
 type this command to show databases.
@@ -353,6 +374,7 @@ successfully detached volume.
 
 Now again from Action tab select Attach volume.
 Select new-ja-1 vm and click attach volume.
+
 ![attach volume](img/39.png)
 
 ## Testing the persistency of data:
